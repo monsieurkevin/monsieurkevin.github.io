@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+}
+
+html {
+    background-color: #201f21;
+    background: url(tableau.jpg);
+}
+
+body {
+    display: flex;
+    align-items: center;
+    
+    color: #ffffff;
+    margin: auto;
+    flex-direction: column;
+    height: 100vh;
+    max-width: 85vw;
+    font-family: 'Overpass', sans-serif;
+    font-size: 20px;
+	font-size: 2vmax;
+}
+
+a {
+    color: #ffffff;
+}
+
+#titre {
+    margin-top: auto;
+    margin-bottom: 2vmax;
+    text-align:center;
+}
+
+#contenu {
+    margin-bottom: auto;
+}
+
+#kevinmoji {
+    width: 20vmax;
+    margin-bottom: 2vmax;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 42px;
+    font-size: 4vmax;
+    line-height: 115%;
+}
+
+h2 {
+    text-align: center;
+    font-size: 28px;
+    font-size: 2.5vmax;
+}
+
+li {
+    list-style-type: none;
+}
+
+li:before {
+    content: "✏️";
+    padding-right: 0.5em;
+    margin-left: -2.5em;
+}
