@@ -14,11 +14,11 @@ body {
 
 .lien {
     font-family: 'Open Sans', sans-serif;
-    font-size: 2.5vh;
+    font-size: 2.5vmin;
     background-color: #FAECC9;
-    padding: 0.5vh;
-    margin: 0.5vh;
-    border: 0.5vh solid #DD912F;
+    padding: 0.5vmin;
+    margin: 0.5vmin;
+    border: 0.5vmin solid #DD912F;
     color: #000000;
 }
 
@@ -27,88 +27,88 @@ body {
 }
 
 .evenement {
-    border: 1vw solid #DD912F;
+    border: 1vmax solid #DD912F;
     background-color: rgba(250, 236, 201, 0.85);
-    height: 30vh;
-    width: 12vw;
+    height: 30vmin;
+    width: 12vmax;
     z-index: 2;
     text-align: center;
     vertical-align: top;
-    margin: 2vh 2vw;
+    margin: 2vmin 2vmax;
 }
 
 .casevide {
     position: relative;
     text-align: center;
-    font-size: 2vw;
+    font-size: 2vmax;
     font-family: 'Open Sans', sans-serif;
 }
 
 h1 {
     font-family: 'Arima Madurai', cursive;
-    font-size: 5vh;
+    font-size: 5vmin;
     text-align: center;
     margin: 0;
 }
 
 h3 {
     font-family: 'Open Sans', sans-serif;
-    font-size: 2vh;
-    padding-left: 0.4vh;
-    padding-right: 0.4vh;
+    font-size: 2vmin;
+    padding-left: 0.4vmin;
+    padding-right: 0.4vmin;
     word-wrap: break-word;
 }
 
 p {
     font-family: 'Nunito', sans-serif;
-    font-size: 1.85vh;
-    padding-left: 0.4vh;
-    padding-right: 0.4vh;
+    font-size: 1.85vmin;
+    padding-left: 0.4vmin;
+    padding-right: 0.4vmin;
     word-wrap: break-word;
 }
 
 #nom {
-    width: 35vw;
+    width: 35vmax;
 }
 
 #eleve {
     font-family: 'Open Sans', sans-serif;
-    font-size: 1.85vh;
-    width: 50vw;
-    margin: 0 auto 2vh;
+    font-size: 1.85vmin;
+    width: 50vmax;
+    margin: 0 auto 2vmin;
 }
 
 .cible {
-    border: 1vw solid #8B461F;
-    height: 30vh;
-    width: 12vw;
+    border: 1vmax solid #8B461F;
+    height: 30vmin;
+    width: 12vmax;
     z-index: 0;
     text-align: center;
-    margin-top: 0.75vh;
+    margin-top: 0.75vmin;
 }
 
 #ligne {
-    width: 85vw;
-    height: 1vw;
+    width: 85vmax;
+    height: 1vmax;
     margin: 0 auto;
     background-color: #341707;
 }
 
 .trait {
-    width: 1vw;
-    height: 3vh;
+    width: 1vmax;
+    height: 3vmin;
     background-color: #341707;
     margin: 0 auto;
 }
 
 #r3, #r4 {
-    width: 76vw;
+    width: 76vmax;
     margin: auto;
 }
 
 #pivoter {
-    width: 100vw;
-    height: 100vh;
+    width: 100vmax;
+    height: 100vmin;
     position: absolute;
     top: 0;
     left: 0;
