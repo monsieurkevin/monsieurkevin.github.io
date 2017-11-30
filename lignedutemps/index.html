@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<!-- Copyright 2017 Kevin F.S. avec un peu d'aide de sa meilleure moitié -->
+<!-- Ce projet peut contenir de brefs extraits de code qui proviennent à notre connaissance du domaine public -->
 <html lang="fr">
     <head>
         <title>🎺 Jazz à Montréal 🎺</title>
@@ -6,21 +8,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://fonts.googleapis.com/css?family=Arima+Madurai:700|Nunito|Open+Sans" rel="stylesheet">
         <link href="style.css" rel="stylesheet">
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png"> <!-- icône pour iOS -->
         <script src="jquery-3.2.1.min.js"></script>
-        <script src="jquery-ui.min.js"></script>
-        <script src="jquery.ui.touch-punch.min.js"></script>
-        <script src="jquery-collision.min.js"></script>
-        <script src="html2canvas.min.js"></script>
+        <script src="jquery-ui.min.js"></script> <!-- implémente les éléments coulissants -->
+        <script src="jquery.ui.touch-punch.min.js"></script>  <!-- support pour les écrans tactiles -->
+        <script src="html2canvas.min.js"></script> <!-- implémente des captures d'écran -->
         <script>
             $( function() {
+                // définit une classe d'éléments coulissants
                 $( ".evenement" ).draggable({
+                    // aimanté à l'intérieur des cases vides
                     snap: ".cible",
                     snapMode: "inner",
+                    // fixe la position des éléments coulissants par rapport au hublot
+                    // pour éviter qu'ils ne se promènent "tout seuls" si le hublot est redimensionné
                     stop: function(e, ui) {
-                        var x = ui.position.left / $( window ).width() * 100;
+                        var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0); // largeur du hublot en px = 100vw
+                        var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0); // hauteur du hublot en px = 100vh
+                        var x = ui.position.left / w * 100;
                         ui.helper.css('left', x + 'vw');
-                        var y = ui.position.top / $( window ).height() * 100;
+                        var y = ui.position.top / h * 100;
                         ui.helper.css('top', y + 'vh');
                     } 
                 });
@@ -29,16 +36,17 @@
     </head>
     <body>
 
-        <a class="lien" href="#" id="sauvegarder">Sauvegarder</a>
-        <a class="lien" id="telecharger">Télécharger</a>
+        <a class="lien" href="#" id="sauvegarder">Valider</a> <!-- capture l'écran dans un canvas invisible-->
+        <a class="lien" id="telecharger">Télécharger</a> <!-- enregistre le canvas précédent dans une image PNG-->
 
         <script>
             document.getElementById('sauvegarder').addEventListener('click', function() {
                 
-                var correct = 0;
+                var correct = 0; // compteur des réponses justes
                 for (var i = 1; i <= 8; i++) {
                     e = document.getElementById("e" + i).getBoundingClientRect();
                     c = document.getElementById("c" + i).getBoundingClientRect();
+                    // vrai si les éléments et leur cible correspondant se touchent
                     var overlap = !(c.right < e.left || c.left > e.right || c.bottom < e.top || c.top > e.bottom);
                         if (overlap) {
                             correct++;
@@ -47,36 +55,40 @@
                 
                 for (var i = 1; i <= 8; i++) {
                     if (correct === 8) {
-                    document.getElementById("e" + i).style.border = "1vw solid #72A156";
+                    document.getElementById("e" + i).style.border = "1vw solid #72A156"; // tout est bon = bordure verte
                     } else {
-                        document.getElementById("e" + i).style.border = "1vw solid #DD912F";
+                        document.getElementById("e" + i).style.border = "1vw solid #DD912F"; // bordure normale
                     }
                 }
                 
                 html2canvas(document.getElementById("travail")).then(function(canvas) {
-                    canvas.setAttribute("id", "canvas");
+                    canvas.setAttribute("id", "canvas"); // pour pouvoir le manipuler plus tard bien qu'il soit invisible
                     canvas.setAttribute("style", "display:none;");
+                    // remplace le canvas existant, le cas échéant
                     if (document.getElementById('canvas') === null) {
                         document.body.appendChild(canvas);
                     } else {
                         document.body.replaceChild(canvas, document.getElementById('canvas'));
                     }
+                    // enregistre le canvas en PNG sous le nom de l'élève
                     document.getElementById('telecharger').href = document.getElementById("canvas").toDataURL();
                     document.getElementById('telecharger').download = "Travail " + document.getElementById('nom').value + ".png";
                 });
             }, false);
         </script>
 
-        <div id="travail">
+        <div id="travail"> <!-- le div qui sera capturé par html2canvas -->
         
             <h1><a href="http://jazzpetitebourgognedoc.radio-canada.ca/ligne-du-temps/13" target="_blank">Le Jazz à Montréal</a></h1>
+            <!-- ce champ détermine aussi le nom du fichier téléchargé-->
             <div id="eleve">Nom de l'élève&nbsp;:&nbsp;<input id="nom" type="text" name="fullname" maxlength="35"></div>
 
-            <div class="rangee" id="r1">
+            <div class="rangee" id="r1"> <!-- 1re rangée de cases vides avec étiquettes d'années -->
                 <div class="casevide" style="left: 2vw;">
+                    <!-- l'image de fond dépasse de l'élément afin de pouvoir l'aligner à notre goût -->
                     <div class="cible" id="c1" style="background: url('1896.jpg') no-repeat center top/auto 60vh;"></div>
                     <div class="annee">1896</div>
-                    <div class="trait"></div>
+                    <div class="trait"></div> <!-- reliant la case à la ligne du temps -->
                 </div>
                 <div class="casevide" style="left: 10vw;">
                     <div class="cible" id="c2" style="background: url('1917.jpg') no-repeat center top/auto 60vh;"></div>
@@ -95,9 +107,9 @@
                 </div>
             </div>
             
-            <div id="ligne"></div>
+            <div id="ligne"></div>  <!--notre "ligne du temps" qui sépare la page -->
 
-            <div class="rangee" id="r2">
+            <div class="rangee" id="r2">  <!-- 2e rangée de cases vides avec étiquettes d'années -->
                 <div class="casevide" style="left: 14vw;">
                     <div class="trait"></div>
                     <div class="annee">1902</div>                    
@@ -122,7 +134,7 @@
 
             
 
-            <div class="rangee" id="r3">
+            <div class="rangee" id="r3"> <!-- 1re rangée de cases coulissantes avec les réponses -->
                 <div class="evenement" id="e6">
                     <div class="tableau">
                         <h3>L’orchestre de Myron Sutton</h3>
@@ -148,7 +160,7 @@
                     </div>
                 </div>
             </div>
-            <div class="rangee" id="r4">
+            <div class="rangee" id="r4"> <!-- 2e rangée de cases coulissantes avec les réponses -->
                 <div class="evenement" id="e3">
                     <div class="tableau">
                         <h3>Premier enregistrement d’un montréalais célèbre</h3>

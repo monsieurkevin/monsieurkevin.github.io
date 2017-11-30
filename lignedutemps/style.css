@@ -1,12 +1,14 @@
+/* Copyright 2017 Kevin F.S. avec un peu d'aide de sa meilleure moitié */
+/* Ce projet peut contenir de brefs extraits de code qui proviennent à notre connaissance du domaine public */
+
 #travail
 {
+    /* désactive la sélection (vraisemblablement accidentelle) du texte dans l'espace de travail */
     -webkit-user-select: none; /* Safari */
        -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                    supported by Chrome and Opera */
-
-    -webkit-touch-callout: none; /* iOS Safari */
+        -ms-user-select: none; /* IE/Edge */
+            user-select: none; /* Chrome et Opera */
+  -webkit-touch-callout: none; /* iOS Safari */
      -khtml-user-select: none; /* Konqueror HTML */
 }
 
@@ -51,7 +53,7 @@ body
 
 .evenement .tableau
 {
-    display: table;
+    display: table; /* permet de centrer verticalement le texte dans la case sans se casser la tête */
 
     width: 100%;
     height: 100%;
