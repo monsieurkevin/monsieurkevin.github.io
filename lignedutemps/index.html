@@ -14,7 +14,16 @@
         <script src="html2canvas.min.js"></script>
         <script>
             $( function() {
-                $( ".evenement" ).draggable({ snap: ".cible", snapMode: "inner"});
+                $( ".evenement" ).draggable({
+                    snap: ".cible",
+                    snapMode: "inner",
+                    stop: function(e, ui) {
+                        var x = ui.position.left / $( window ).width() * 100;
+                        ui.helper.css('left', x + 'vw');
+                        var y = ui.position.top / $( window ).height() * 100;
+                        ui.helper.css('top', y + 'vh');
+                    } 
+                });
             } );
         </script>
     </head>
@@ -38,9 +47,9 @@
                 
                 for (var i = 1; i <= 8; i++) {
                     if (correct === 8) {
-                    document.getElementById("e" + i).style.border = "1vmax solid #72A156";
+                    document.getElementById("e" + i).style.border = "1vw solid #72A156";
                     } else {
-                        document.getElementById("e" + i).style.border = "1vmax solid #DD912F";
+                        document.getElementById("e" + i).style.border = "1vw solid #DD912F";
                     }
                 }
                 
@@ -64,23 +73,23 @@
             <div id="eleve">Nom de l'élève&nbsp;:&nbsp;<input id="nom" type="text" name="fullname" maxlength="35"></div>
 
             <div class="rangee" id="r1">
-                <div class="casevide" style="left: 2vmax;">
-                    <div class="cible" id="c1" style="background: url('1896.jpg') no-repeat center top/auto 60vmin;"></div>
+                <div class="casevide" style="left: 2vw;">
+                    <div class="cible" id="c1" style="background: url('1896.jpg') no-repeat center top/auto 60vh;"></div>
                     <div>1896</div>
                     <div class="trait"></div>
                 </div>
-                <div class="casevide" style="left: 10vmax;">
-                    <div class="cible" id="c2" style="background: url('1917.jpg') no-repeat center top/auto 60vmin;"></div>
+                <div class="casevide" style="left: 10vw;">
+                    <div class="cible" id="c2" style="background: url('1917.jpg') no-repeat center top/auto 60vh;"></div>
                     <div>1917</div>
                     <div class="trait"></div>
                 </div>
-                <div class="casevide" style="left: 18vmax;">
-                    <div class="cible" id="c3" style="background: url('1945.jpg') no-repeat center/auto 60vmin;"></div>
+                <div class="casevide" style="left: 18vw;">
+                    <div class="cible" id="c3" style="background: url('1945.jpg') no-repeat center/auto 60vh;"></div>
                     <div>1945</div>
                     <div class="trait"></div>
                 </div>
-                <div class="casevide" style="left: 26vmax;">
-                    <div class="cible" id="c4" style="background: url('1967.jpg') no-repeat center/auto 60vmin;"></div>
+                <div class="casevide" style="left: 26vw;">
+                    <div class="cible" id="c4" style="background: url('1967.jpg') no-repeat center/auto 60vh;"></div>
                     <div>1967</div>
                     <div class="trait"></div>
                 </div>
@@ -89,25 +98,25 @@
             <div id="ligne"></div>
 
             <div class="rangee" id="r2">
-                <div class="casevide" style="left: 14vmax;">
+                <div class="casevide" style="left: 14vw;">
                     <div class="trait"></div>
                     <div>1902</div>                    
-                    <div class="cible" id="c5" style="background: url('1902.jpg') no-repeat left top/auto 60vmin;"></div>
+                    <div class="cible" id="c5" style="background: url('1902.jpg') no-repeat left top/auto 60vh;"></div>
                 </div>
-                <div class="casevide" style="left: 22vmax;">
+                <div class="casevide" style="left: 22vw;">
                     <div class="trait"></div>
                     <div>1933</div>
-                    <div class="cible" id="c6" style="background: url('1933.jpg') no-repeat center/auto 60vmin;"></div>    
+                    <div class="cible" id="c6" style="background: url('1933.jpg') no-repeat center/auto 60vh;"></div>    
                 </div>
-                <div class="casevide" style="left: 30vmax;">
+                <div class="casevide" style="left: 30vw;">
                     <div class="trait"></div>
                     <div>1958</div>
-                    <div class="cible" id="c7" style="background: url('1958.png') no-repeat center/auto 60vmin;"></div>
+                    <div class="cible" id="c7" style="background: url('1958.png') no-repeat center/auto 60vh;"></div>
                 </div>
-                <div class="casevide" style="left: 38vmax;">
+                <div class="casevide" style="left: 38vw;">
                     <div class="trait"></div>
                     <div>1980</div>
-                    <div class="cible" id="c8" style="background: url('1980.jpg') no-repeat center center/auto 60vmin;"></div>
+                    <div class="cible" id="c8" style="background: url('1980.jpg') no-repeat center center/auto 60vh;"></div>
                 </div>
             </div>
 
@@ -115,39 +124,55 @@
 
             <div class="rangee" id="r3">
                 <div class="evenement" id="e6">
-                    <h3>L’orchestre de Myron Sutton</h3>
-                    <p>Parti d’Ontario, le groupe appelé les Canadian Ambassadors s’installe à Montréal.</p>
+                    <div class="tableau">
+                        <h3>L’orchestre de Myron Sutton</h3>
+                        <p>Parti d’Ontario, le groupe appelé les Canadian Ambassadors s’installe à Montréal.</p>
+                    </div>
                 </div>
                 <div class="evenement" id="e2">
-                    <h3>Tout premier enregistrement de jazz</h3>
-                    <p>L’orchestre Original Dixieland Jazz Band enregistre le tout premier disque de jazz.</p>
+                    <div class="tableau">
+                        <h3>Tout premier enregistrement de jazz</h3>
+                        <p>L’orchestre Original Dixieland Jazz Band enregistre le tout premier disque de jazz.</p>
+                    </div>
                 </div>
                 <div class="evenement" id="e1">
-                    <h3>Projection du premier film en Amérique du Nord</h3>
-                    <p>C’est l’époque du cinéma muet. Des musiciens jouent alors que le film est projeté.</p>
+                    <div class="tableau">
+                        <h3>Projection du premier film en Amérique du Nord</h3>
+                        <p>C’est l’époque du cinéma muet. Des musiciens jouent alors que le film est projeté.</p>
+                    </div>
                 </div>
                 <div class="evenement" id="e4">
-                    <h3>Expo 67</h3>
-                    <p>Lors de l’Expo 67, plusieurs musiciens de jazz font des spectacles.</p>
+                    <div class="tableau">
+                        <h3>Expo 67</h3>
+                        <p>Lors de l’Expo 67, plusieurs musiciens de jazz font des spectacles.</p>
+                    </div>
                 </div>
             </div>
             <div class="rangee" id="r4">
                 <div class="evenement" id="e3">
-                    <h3>Premier enregistrement d’un montréalais célèbre</h3>
-                    <p>Le montréalais Oscar Peterson enregistre son premier disque.</p>
+                    <div class="tableau">
+                        <h3>Premier enregistrement d’un montréalais célèbre</h3>
+                        <p>Le montréalais Oscar Peterson enregistre son premier disque.</p>
+                    </div>
                 </div>
                 
                 <div class="evenement" id="e5">
-                    <h3>Invention du jazz</h3>
-                    <p>Jelly Roll Merton a mélangé des styles de musique (le ragtime, le quadrille et le blues). Il a créé le jazz.</p>
+                    <div class="tableau">
+                        <h3>Invention du jazz</h3>
+                        <p>Jelly Roll Merton a mélangé des styles de musique (le ragtime, le quadrille et le blues). Il a créé le jazz.</p>
+                    </div>
                 </div>
                 <div class="evenement" id="e8">
-                    <h3>Festival international de jazz de Montréal</h3>
-                    <p>Sur l’île Sainte-Hélène, le premier Festival international de jazz se déroule. </p>
+                    <div class="tableau">
+                        <h3>Festival international de jazz de Montréal</h3>
+                        <p>Sur l’île Sainte-Hélène, le premier Festival international de jazz se déroule. </p>
+                    </div>
                 </div>
                 <div class="evenement" id="e7">
-                    <h3>Première édition du Festival de jazz</h3>
-                    <p>À Montréal, Oscar Peterson et The Modern Jazz Quartet sont les vedettes du premier Festival de jazz.</p>
+                    <div class="tableau">
+                        <h3>Première édition du Festival de jazz</h3>
+                        <p>À Montréal, Oscar Peterson et The Modern Jazz Quartet sont les vedettes du premier Festival de jazz.</p>
+                    </div>
                 </div>
             </div>
         </div>

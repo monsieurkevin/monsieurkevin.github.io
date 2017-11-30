@@ -16,9 +16,9 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-size: 2.5vmin;
     background-color: #FAECC9;
-    padding: 0.5vmin;
-    margin: 0.5vmin;
-    border: 0.5vmin solid #DD912F;
+    padding: 0.5vh;
+    margin: 0.5vh;
+    border: 0.5vh solid #DD912F;
     color: #000000;
 }
 
@@ -27,14 +27,30 @@ body {
 }
 
 .evenement {
-    border: 1vmax solid #DD912F;
+    border: 1vw solid #DD912F;
     background-color: rgba(250, 236, 201, 0.85);
-    height: 30vmin;
-    width: 12vmax;
+    height: 30vh;
+    width: 12vw;
     z-index: 2;
     text-align: center;
     vertical-align: top;
-    margin: 2vmin 2vmax;
+    margin: 2vh 2vw;
+}
+
+.evenement .tableau {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+.evenement h3 {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.evenement p {
+    display: table-row;
+    vertical-align: middle;
 }
 
 .casevide {
@@ -58,52 +74,52 @@ h1 a, h1 a:visited {
 h3 {
     font-family: 'Open Sans', sans-serif;
     font-size: 2vmin;
-    padding-left: 0.4vmin;
-    padding-right: 0.4vmin;
+    padding-left: 0.4vh;
+    padding-right: 0.4vh;
 }
 
 p {
     font-family: 'Nunito', sans-serif;
     font-size: 1.85vmin;
-    padding-left: 0.4vmin;
-    padding-right: 0.4vmin;
+    padding-left: 0.4vh;
+    padding-right: 0.4vh;
 }
 
 #nom {
-    width: 35vmax;
+    width: 35vw;
 }
 
 #eleve {
     font-family: 'Open Sans', sans-serif;
     font-size: 1.9vmin;
-    width: 50vmax;
-    margin: 0 auto 2vmin;
+    width: 50vw;
+    margin: 0 auto 2vh;
 }
 
 .cible {
-    border: 1vmax solid #8B461F;
-    height: 30vmin;
-    width: 12vmax;
+    border: 1vw solid #8B461F;
+    height: 30vh;
+    width: 12vw;
     z-index: 0;
     text-align: center;
-    margin-top: 0.75vmin;
+    margin-top: 0.75vh;
 }
 
 #ligne {
-    width: 85vmax;
-    height: 1vmax;
+    width: 85vw;
+    height: 1vw;
     margin: 0 auto;
     background-color: #341707;
 }
 
 .trait {
-    width: 1vmax;
-    height: 3vmin;
+    width: 1vw;
+    height: 3vh;
     background-color: #341707;
     margin: 0 auto;
 }
 
 #r3, #r4 {
-    width: 76vmax;
+    width: 76vw;
     margin: auto;
 }
