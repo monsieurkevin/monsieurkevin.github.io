@@ -60,6 +60,10 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+.casevide .annee {
+    margin: 1.5vh 0; 
+}
+
 h1 {
     font-family: 'Arima Madurai', cursive;
     font-size: 5vmin;
