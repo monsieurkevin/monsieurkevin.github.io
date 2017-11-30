@@ -24,12 +24,19 @@
         <script>
             document.getElementById('sauvegarder').addEventListener('click', function() {
                 
+                var correct = 0;
                 for (var i = 1; i <= 8; i++) {
                     e = document.getElementById("e" + i).getBoundingClientRect();
                     c = document.getElementById("c" + i).getBoundingClientRect();
                     var overlap = !(c.right < e.left || c.left > e.right || c.bottom < e.top || c.top > e.bottom);
-                    if (overlap) {
-                        document.getElementById("e" + i).style.border = "1vmax solid #72A156";
+                        if (overlap) {
+                            correct++;
+                        }
+                    }
+                
+                for (var i = 1; i <= 8; i++) {
+                    if (correct === 8) {
+                    document.getElementById("e" + i).style.border = "1vmax solid #72A156";
                     } else {
                         document.getElementById("e" + i).style.border = "1vmax solid #DD912F";
                     }
