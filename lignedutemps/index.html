@@ -60,6 +60,10 @@
                         document.getElementById("e" + i).style.border = "1vw solid #DD912F"; // bordure normale
                     }
                 }
+
+                if (correct !== 8) {
+                    alert("Oups ! Certaines réponses sont mauvaises !");
+                }
                 
                 html2canvas(document.getElementById("travail")).then(function(canvas) {
                     canvas.setAttribute("id", "canvas"); // pour pouvoir le manipuler plus tard bien qu'il soit invisible
