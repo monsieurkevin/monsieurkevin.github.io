@@ -23,6 +23,18 @@
 
         <script>
             document.getElementById('sauvegarder').addEventListener('click', function() {
+                
+                for (var i = 1; i <= 8; i++) {
+                    e = document.getElementById("e" + i).getBoundingClientRect();
+                    c = document.getElementById("c" + i).getBoundingClientRect();
+                    var overlap = !(c.right < e.left || c.left > e.right || c.bottom < e.top || c.top > e.bottom);
+                    if (overlap) {
+                        document.getElementById("e" + i).style.border = "1vmax solid #72A156";
+                    } else {
+                        document.getElementById("e" + i).style.border = "1vmax solid #DD912F";
+                    }
+                }
+                
                 html2canvas(document.getElementById("travail")).then(function(canvas) {
                     canvas.setAttribute("id", "canvas");
                     canvas.setAttribute("style", "display:none;");
@@ -93,11 +105,11 @@
             
 
             <div class="rangee" id="r3">
-                <div class="evenement" id="e4">
+                <div class="evenement" id="e6">
                     <h3>L’orchestre de Myron Sutton</h3>
                     <p>Parti d’Ontario, le groupe appelé les Canadian Ambassadors s’installe à Montréal.</p>
                 </div>
-                <div class="evenement" id="e3">
+                <div class="evenement" id="e2">
                     <h3>Tout premier enregistrement de jazz</h3>
                     <p>L’orchestre Original Dixieland Jazz Band enregistre le tout premier disque de jazz.</p>
                 </div>
@@ -105,18 +117,18 @@
                     <h3>Projection du premier film en Amérique du Nord</h3>
                     <p>C’est l’époque du cinéma muet. Des musiciens jouent alors que le film est projeté.</p>
                 </div>
-                <div class="evenement" id="e7">
+                <div class="evenement" id="e4">
                     <h3>Expo 67</h3>
                     <p>Lors de l’Expo 67, plusieurs musiciens de jazz font des spectacles.</p>
                 </div>
             </div>
             <div class="rangee" id="r4">
-                <div class="evenement" id="e5">
+                <div class="evenement" id="e3">
                     <h3>Premier enregistrement d’un montréalais célèbre</h3>
                     <p>Le montréalais Oscar Peterson enregistre son premier disque.</p>
                 </div>
                 
-                <div class="evenement" id="e2">
+                <div class="evenement" id="e5">
                     <h3>Invention du jazz</h3>
                     <p>Jelly Roll Merton a mélangé des styles de musique (le ragtime, le quadrille et le blues). Il a créé le jazz.</p>
                 </div>
@@ -124,7 +136,7 @@
                     <h3>Festival international de jazz de Montréal</h3>
                     <p>Sur l’île Sainte-Hélène, le premier Festival international de jazz se déroule. </p>
                 </div>
-                <div class="evenement" id="e6">
+                <div class="evenement" id="e7">
                     <h3>Première édition du Festival de jazz</h3>
                     <p>À Montréal, Oscar Peterson et The Modern Jazz Quartet sont les vedettes du premier Festival de jazz.</p>
                 </div>
