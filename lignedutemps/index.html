@@ -1,22 +1,149 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
     <head>
         <title></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="test.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Arima+Madurai:700|Nunito|Open+Sans" rel="stylesheet">        <link href="style.css" rel="stylesheet">
         <script src="jquery-3.2.1.min.js"></script>
         <script src="jquery-ui.min.js"></script>
         <script src="jquery.ui.touch-punch.min.js"></script>
         <script src="jquery-collision.min.js"></script>
-        <!-- <script src="jquery-ui-draggable-collision.min.js"></script> -->
+        <script src="html2canvas.min.js"></script>
         <script>
             $( function() {
-                $( ".rect" ).draggable();
+                $( ".evenement" ).draggable({ snap: ".cible", snapMode: "inner"});
             } );
         </script>
     </head>
     <body>
-        <div class="rect" style="border: 6px solid red;width: 5%;">Test</div>
+
+        <div id="pivoter"></div>
+
+        <a class="lien" href="#" id="sauvegarder">Sauvegarder</a>
+        <a class="lien" id="telecharger">Télécharger</a>
+
+        <script>
+            document.getElementById('sauvegarder').addEventListener('click', function() {
+                html2canvas(document.getElementById("travail")).then(function(canvas) {
+                    canvas.setAttribute("id", "canvas");
+                    canvas.setAttribute("style", "display:none;");
+                    if (document.getElementById('canvas') === null) {
+                        document.body.appendChild(canvas);
+                    } else {
+                        document.body.replaceChild(canvas, document.getElementById('canvas'));
+                    }
+                    document.getElementById('telecharger').href = document.getElementById("canvas").toDataURL();
+                    document.getElementById('telecharger').download = "Travail " + document.getElementById('nom').value + ".png";
+                });
+            }, false);
+        </script>
+
+        <script>
+            window.addEventListener('orientationchange', function() {
+                switch(window.orientation) {  
+                case 0 || 180:
+                    document.getElementById("pivoter").style.display = "block"; 
+                    break; 
+                default:
+                    document.getElementById("pivoter").style.display = "none"; 
+                    break; 
+                }
+            });
+        </script>
+
+        <div id="travail">
+        
+            <h1>Le Jazz à Montréal</h1>
+            <div id="eleve">Nom de l'élève&nbsp;:&nbsp;<input id="nom" type="text" name="name" size="35"></div>
+
+            <div class="rangee" id="r1">
+                <div class="casevide" style="left: 2vw;">
+                    <div class="cible" id="c1" style="background: url('1896.jpg') no-repeat center top;"></div>
+                    <div>1896</div>
+                    <div class="trait"></div>
+                </div>
+                <div class="casevide" style="left: 10vw;">
+                    <div class="cible" id="c2" style="background: url('1917.jpg') no-repeat center top;"></div>
+                    <div>1917</div>
+                    <div class="trait"></div>
+                </div>
+                <div class="casevide" style="left: 18vw;">
+                    <div class="cible" id="c3" style="background: url('1945.jpg') no-repeat center;"></div>
+                    <div>1945</div>
+                    <div class="trait"></div>
+                </div>
+                <div class="casevide" style="left: 26vw;">
+                    <div class="cible" id="c4" style="background: url('1967.jpg') no-repeat center;"></div>
+                    <div>1967</div>
+                    <div class="trait"></div>
+                </div>
+            </div>
+            
+            <div id="ligne"></div>
+
+            <div class="rangee" id="r2">
+                <div class="casevide" style="left: 14vw;">
+                    <div class="trait"></div>
+                    <div class="cible" id="c5" style="background: url('1902.jpg') no-repeat;"></div>
+                    <div>1902</div>
+                </div>
+                <div class="casevide" style="left: 22vw;">
+                    <div class="trait"></div>
+                    <div class="cible" id="c6" style="background: url('1933.jpg') no-repeat center;"></div>
+                    <div>1933</div>
+                </div>
+                <div class="casevide" style="left: 30vw;">
+                    <div class="trait"></div>
+                    <div class="cible" id="c7" style="background: url('1958.png') no-repeat center;"></div>
+                    <div>1958</div>
+                </div>
+                <div class="casevide" style="left: 38vw;">
+                    <div class="trait"></div>
+                    <div class="cible" id="c8" style="background: url('1980.jpg') no-repeat center center;"></div>
+                    <div>1980</div>
+                </div>
+            </div>
+
+            
+
+            <div class="rangee" id="r3">
+                <div class="evenement" id="e4">
+                    <h3>L’orchestre de Myron Sutton</h3>
+                    <p>Parti d’Ontario, le groupe appelé les Canadian Ambassadors s’installe à Montréal.</p>
+                </div>
+                <div class="evenement" id="e3">
+                    <h3>Tout premier enregistrement de jazz</h3>
+                    <p>L’orchestre Original Dixieland Jazz Band enregistre le tout premier disque de jazz.</p>
+                </div>
+                <div class="evenement" id="e1">
+                    <h3>Projection du premier film en Amérique du Nord</h3>
+                    <p>C’est l’époque du cinéma muet. Des musiciens jouent alors que le film est projeté.</p>
+                </div>
+                <div class="evenement" id="e7">
+                    <h3>Expo 67</h3>
+                    <p>Lors de l’Expo 67, plusieurs musiciens de jazz font des spectacles.</p>
+                </div>
+            </div>
+            <div class="rangee" id="r4">
+                <div class="evenement" id="e5">
+                    <h3>Premier enregistrement d’un montréalais célèbre</h3>
+                    <p>Le montréalais Oscar Peterson enregistre son premier disque.</p>
+                </div>
+                
+                <div class="evenement" id="e2">
+                    <h3>Invention du jazz</h3>
+                    <p>Jelly Roll Merton a mélangé des styles de musique (le ragtime, le quadrille et le blues). Il a créé le jazz.</p>
+                </div>
+                <div class="evenement" id="e8">
+                    <h3>Festival international de jazz de Montréal</h3>
+                    <p>Sur l’île Sainte-Hélène, le premier Festival international de jazz se déroule. </p>
+                </div>
+                <div class="evenement" id="e6">
+                    <h3>Première édition du Festival de jazz</h3>
+                    <p>À Montréal, Oscar Peterson et The Modern Jazz Quartet sont les vedettes du premier Festival de jazz.</p>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

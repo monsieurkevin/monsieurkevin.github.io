@@ -1,0 +1,118 @@
+#travail {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome and Opera */
+}
+
+body {
+    background-color: #99B6A0;
+}
+
+.lien {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2.5vh;
+    background-color: #FAECC9;
+    padding: 0.5vh;
+    margin: 0.5vh;
+    border: 0.5vh solid #DD912F;
+    color: #000000;
+}
+
+.evenement, .casevide {
+    display: inline-block;
+}
+
+.evenement {
+    border: 1vw solid #DD912F;
+    background-color: rgba(250, 236, 201, 0.85);
+    height: 30vh;
+    width: 12vw;
+    z-index: 2;
+    text-align: center;
+    vertical-align: top;
+    margin: 2vh 2vw;
+}
+
+.casevide {
+    position: relative;
+    text-align: center;
+    font-size: 2vw;
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+    font-family: 'Arima Madurai', cursive;
+    font-size: 5vh;
+    text-align: center;
+    margin: 0;
+}
+
+h3 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2vh;
+    padding-left: 0.4vh;
+    padding-right: 0.4vh;
+    word-wrap: break-word;
+}
+
+p {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.85vh;
+    padding-left: 0.4vh;
+    padding-right: 0.4vh;
+    word-wrap: break-word;
+}
+
+#nom {
+    width: 35vw;
+}
+
+#eleve {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.85vh;
+    width: 50vw;
+    margin: 0 auto 2vh;
+}
+
+.cible {
+    border: 1vw solid #8B461F;
+    height: 30vh;
+    width: 12vw;
+    z-index: 0;
+    text-align: center;
+    margin-top: 0.75vh;
+}
+
+#ligne {
+    width: 85vw;
+    height: 1vw;
+    margin: 0 auto;
+    background-color: #341707;
+}
+
+.trait {
+    width: 1vw;
+    height: 3vh;
+    background-color: #341707;
+    margin: 0 auto;
+}
+
+#r3, #r4 {
+    width: 76vw;
+    margin: auto;
+}
+
+#pivoter {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.95) url(pivoter.gif) center/50vmin no-repeat;
+    z-index: 99;
+    display: none;
+}
