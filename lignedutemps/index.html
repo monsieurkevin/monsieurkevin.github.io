@@ -44,7 +44,7 @@
                     }
                 }
                 
-                html2canvas(document.body).then(function(canvas) {
+                html2canvas(document.getElementById("travail")).then(function(canvas) {
                     canvas.setAttribute("id", "canvas");
                     canvas.setAttribute("style", "display:none;");
                     if (document.getElementById('canvas') === null) {
