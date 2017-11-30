@@ -56,7 +56,6 @@ h3 {
     font-size: 2vmin;
     padding-left: 0.4vmin;
     padding-right: 0.4vmin;
-    word-wrap: break-word;
 }
 
 p {
@@ -64,7 +63,6 @@ p {
     font-size: 1.85vmin;
     padding-left: 0.4vmin;
     padding-right: 0.4vmin;
-    word-wrap: break-word;
 }
 
 #nom {
@@ -104,15 +102,4 @@ p {
 #r3, #r4 {
     width: 76vmax;
     margin: auto;
-}
-
-#pivoter {
-    width: 100vmax;
-    height: 100vmin;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: rgba(255, 255, 255, 0.95) url(pivoter.gif) center/50vmin no-repeat;
-    z-index: 99;
-    display: none;
 }

@@ -18,8 +18,6 @@
     </head>
     <body>
 
-        <div id="pivoter"></div>
-
         <a class="lien" href="#" id="sauvegarder">Sauvegarder</a>
         <a class="lien" id="telecharger">Télécharger</a>
 
@@ -37,19 +35,6 @@
                     document.getElementById('telecharger').download = "Travail " + document.getElementById('nom').value + ".png";
                 });
             }, false);
-        </script>
-
-        <script>
-            window.addEventListener('orientationchange', function() {
-                switch(window.orientation) {  
-                case 0 || 180:
-                    document.getElementById("pivoter").style.display = "block"; 
-                    break; 
-                default:
-                    document.getElementById("pivoter").style.display = "none"; 
-                    break; 
-                }
-            });
         </script>
 
         <div id="travail">
